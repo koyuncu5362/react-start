@@ -1,22 +1,19 @@
-import "bootstrap/dist/css/bootstrap.css"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Homepage from "./pages/Homepage/Homepage"
-import Products from "./pages/Products/Products"
-import Navbar from "./components/Navbar/Navbar"
-import { ProductDetail } from "./pages/ProductDetail/ProductDetail"
+import { Container } from "semantic-ui-react";
+import "./App.css";
+import Dashboard from "./layouts/Dashboard";
+import Navi from "./layouts/Navi";
+import "semantic-ui-css/semantic.min.css";
 
-
-export default function App() {
-  return <>
-    <Navbar />
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />}></Route>
-        <Route path="/products" element={<Products />}></Route>
-        <Route path="/products/:id" element={<ProductDetail />} />
-        <Route path="*" element={<div>Not found</div>}></Route>
-      </Routes>
-    </BrowserRouter>
-  </>
-
+function App() {
+  return (<>
+    <div className="App">
+      <Navi/>
+      <Container className="main">
+        <Dashboard/>
+      </Container>
+    </div>
+    </>
+  );
 }
+
+export default App;
